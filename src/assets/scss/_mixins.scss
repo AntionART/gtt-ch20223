@@ -1,0 +1,30 @@
+@mixin gradient-bg($start-color, $end-color) {
+  background: linear-gradient(135deg, $start-color 0%, $end-color 100%);
+}
+
+@mixin card-shadow {
+  box-shadow: $box-shadow;
+  transition: box-shadow 0.3s ease;
+  
+  &:hover {
+    box-shadow: $box-shadow-lg;
+  }
+}
+
+@mixin button-hover-effect {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@mixin responsive-grid($min-width: 280px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
+  gap: 2rem;
+  
+  @media (max-width: $breakpoint-md) {
+    gap: 1rem;
+  }
+}

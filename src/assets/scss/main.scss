@@ -1,0 +1,64 @@
+@import 'variables';
+@import 'mixins';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $dark-color;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.btn {
+  @include button-hover-effect;
+  border-radius: $border-radius;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  
+  &.btn-primary {
+    @include gradient-bg($primary-color, $secondary-color);
+    border: none;
+    color: white;
+  }
+  
+  &.btn-outline-primary {
+    border: 2px solid $primary-color;
+    color: $primary-color;
+    background: transparent;
+    
+    &:hover {
+      @include gradient-bg($primary-color, $secondary-color);
+      color: white;
+    }
+  }
+}
+
+.alert {
+  border-radius: $border-radius;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  
+  &.alert-danger {
+    background-color: rgba($danger-color, 0.1);
+    border: 1px solid rgba($danger-color, 0.3);
+    color: darken($danger-color, 10%);
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .container {
+    padding: 0 0.5rem;
+  }
+}
